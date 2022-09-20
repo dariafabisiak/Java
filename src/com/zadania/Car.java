@@ -14,4 +14,8 @@ public class Car {
         this.color = color;
         this.price = price;
     }
+
+    public Double getPrice() {
+        return price;
+    }
 }
