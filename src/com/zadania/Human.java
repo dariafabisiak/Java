@@ -1,4 +1,5 @@
 package com.zadania;
+import devices.Car;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -43,5 +44,10 @@ public class Human {
         } else {
             System.out.println("Can't buy. Maybe you should rebrand to be a programmer ?");
         }
+    }
+
+    @Override
+    public String toString() {
+        return Double.toString(salary);
     }
 }

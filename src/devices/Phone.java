@@ -1,4 +1,4 @@
-package com.zadania;
+package devices;
 
 public class Phone {
 }

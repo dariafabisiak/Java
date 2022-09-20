@@ -32,4 +32,9 @@ public class Animal {
             weight -= x;
         }
     }
+
+    @Override
+    public String toString() {
+        return species + " " + weight;
+    }
 }
