@@ -1,8 +1,11 @@
-package com.zadania;
+package creatures;
 
-public class Animal implements Sellable{
+import com.zadania.Human;
+import com.zadania.Sellable;
+
+public abstract class Animal implements Sellable, Feedable {
     final String species;
-    private Double weight;
+    protected double weight;
 
     Animal(String species) {
         this.species = species;
