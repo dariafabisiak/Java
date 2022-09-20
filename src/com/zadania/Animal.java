@@ -1,6 +1,6 @@
 package com.zadania;
 
-public class Animal {
+public class Animal implements Sellable{
     final String species;
     private Double weight;
 
@@ -36,5 +36,16 @@ public class Animal {
     @Override
     public String toString() {
         return species + " " + weight;
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.haveAnimal() == true && buyer.getSalary() > price) {
+            buyer.setSalary(buyer.getSalary() - price);
+            seller.setSalary(seller.getSalary() + price);
+            Animal tmp = seller.getAnimal();
+            buyer.setAnimal(tmp);
+            seller.setAnimal(null);
+        }
     }
 }

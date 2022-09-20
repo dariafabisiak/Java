@@ -1,5 +1,6 @@
 package com.zadania;
 import devices.Car;
+import devices.Phone;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,13 +8,15 @@ import java.util.Date;
 public class Human {
     Animal pet;
     private Car car;
+    private Phone phone;
+    double cash;
 
     private double salary = 0;
 
     Human()
     {}
 
-    double getSalary() {
+    public double getSalary() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         System.out.println("Dane zostaly pobrane : " + formatter.format(date));
@@ -21,7 +24,7 @@ public class Human {
         return salary;
     }
 
-    void setSalary(double salary) {
+    public void setSalary(double salary) {
         if (salary < 0) {
             return;
         }
@@ -31,24 +34,44 @@ public class Human {
         this.salary = salary;
     }
 
-    Car getCar() {
+    public Car getCar() {
         return car;
     }
 
-    void setCar(Car car) {
-        double price = car.getPrice();
-        if (salary > price) {
-            this.car = car;
-        } else if (salary > price / 12.0) {
-            System.out.println("Maybe using loan, but actually chicks will be surprise.");
-            this.car = car;
-        } else {
-            System.out.println("Can't buy. Maybe you should rebrand to be a programmer ?");
-        }
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public void setAnimal(Animal a){
+        pet = a;
     }
 
     @Override
     public String toString() {
         return Double.toString(salary);
+    }
+
+    public boolean haveCar() {
+        return car != null;
+    }
+
+    public boolean havePhone() {
+        return phone != null;
+    }
+
+    public boolean haveAnimal() {
+        return pet != null;
+    }
+
+    public Animal getAnimal() {
+        return pet;
+    }
+
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 }

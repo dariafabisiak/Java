@@ -1,6 +1,9 @@
 package devices;
 
-public class Car extends Device {
+import com.zadania.Human;
+import com.zadania.Sellable;
+
+public class Car extends Device implements Sellable {
     private Double horsePower;
     private String color;
     private Double price;
@@ -36,5 +39,16 @@ public class Car extends Device {
                 horsePower == tmp.horsePower &&
                 color == tmp.color &&
                 price == tmp.price;
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.haveCar() == true && buyer.getSalary() > price) {
+            buyer.setSalary(buyer.getSalary() - price);
+            seller.setSalary(seller.getSalary() + price);
+            Car tmp = seller.getCar();
+            buyer.setCar(tmp);
+            seller.setCar(null);
+        }
     }
 }
