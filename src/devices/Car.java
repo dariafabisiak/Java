@@ -3,7 +3,7 @@ package devices;
 import com.zadania.Human;
 import com.zadania.Sellable;
 
-public class Car extends Device implements Sellable {
+public abstract class Car extends Device implements Sellable {
     private Double horsePower;
     private String color;
     private Double price;
@@ -51,4 +51,6 @@ public class Car extends Device implements Sellable {
             seller.setCar(null);
         }
     }
+
+    public abstract void refuel();
 }
