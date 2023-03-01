@@ -42,5 +42,16 @@ public class Main {
         catch (MalformedURLException e) {
             e.printStackTrace();
         }
+
+        Human a = new Human();
+        Car carA = new Diesel("Test","Prod",2020,100.0,"red",1000.0);
+        a.setCar(0,carA);
+        System.out.println("Wartosc garazu czlowieka 'a': " + a.getGarageValue());
+
+        Human b = new Human();
+        b.setSalary(3000.0);
+        carA.sell(a,b,2000.0);
+
+
     }
 }

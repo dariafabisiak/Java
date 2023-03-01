@@ -8,14 +8,20 @@ import java.util.Date;
 
 public class Human {
     Animal pet;
-    private Car car;
+    private Car[] garage;
     private Phone phone;
     double cash;
 
     private double salary = 0;
 
-    Human()
-    {}
+    Human() {
+        this.garage = new Car[2];
+    }
+
+
+    Human(int garageSize) {
+        this.garage = new Car[garageSize];
+    }
 
     public double getSalary() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -35,12 +41,35 @@ public class Human {
         this.salary = salary;
     }
 
-    public Car getCar() {
-        return car;
+    public Car[] getGarage() {
+        return garage;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setGarage(Car[] garage) {
+        this.garage = garage;
+    }
+
+    public Car getCar(int garageIndex) {
+        if (garageIndex < 0 || garageIndex >= garage.length) {
+            throw new IndexOutOfBoundsException("Invalid garage index: " + garageIndex);
+        }
+        return garage[garageIndex];
+    }
+
+    public void setCar(int garageIndex, Car car) {
+        if (garageIndex < 0 || garageIndex >= garage.length) {
+            throw new IndexOutOfBoundsException("Invalid garage index: " + garageIndex);
+        }
+        garage[garageIndex] = car;
+    }
+    public double getGarageValue() {
+        double sum = 0;
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] != null) {
+                sum += garage[i].value;
+            }
+        }
+        return sum;
     }
 
     public void setAnimal(Animal a){
@@ -52,9 +81,6 @@ public class Human {
         return Double.toString(salary);
     }
 
-    public boolean haveCar() {
-        return car != null;
-    }
 
     public boolean havePhone() {
         return phone != null;

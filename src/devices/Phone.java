@@ -3,7 +3,6 @@ package devices;
 import com.zadania.Human;
 import com.zadania.Sellable;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -14,7 +13,7 @@ public class Phone extends Device implements Sellable {
     static final String defaultName = "defaultAppName";
 
     public Phone(String model, String producer, int yearOfProduction) {
-        super(model, producer, yearOfProduction);
+        super(model, producer, yearOfProduction, 0.0);
     }
 
     @Override
